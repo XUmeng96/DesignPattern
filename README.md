@@ -16,8 +16,12 @@
 ##### I 分析
  enum可以看作是特殊的class类型，enum的declaration会被编译成包含static final属性的final类  
  Enum是abstract class内部包含 final name属性表示定义的constant， final ordinal表示constant的位置，并提供获取name及ordinal的方法
- 构造方法为protected Enum(name.ordinal) ,本身重写了toString camparable等方法 valueOf(class, name)方法获取对应的condtant，values()包含所有constant  
+ 构造方法为protected Enum(name.ordinal) ,本身重写了toString（获取常量用name()） camparable等方法 valueOf(class, name)方法获取对应的condtant，values()包含所有constant  
  枚举类是可以直接==比较的引用数据类型
+ 可以为enum编写构造方法、字段和方法
+ enum的构造方法要声明为private，字段强烈建议声明为final；
+ enum适合用在switch语句中。  
+
  例：
  ```java
 public enum Singleton{
@@ -59,3 +63,7 @@ public static void main (String[] args) {
 #### b. 序列化与反系列化
 
 ### 3. 单例模式的应用
+
+参考：
+https://www.liaoxuefeng.com/wiki/1252599548343744/1260473188087424  
+https://swsmile.info/2019/03/26/%E3%80%90Java%E3%80%91%E6%9E%9A%E4%B8%BE%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/
