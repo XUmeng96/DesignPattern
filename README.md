@@ -10,8 +10,17 @@
  [代码片段](https://github.com/XUmeng96/DesignPattern/blob/master/src/main/java/com/xu/pattern/singleton/HungrySingleton.java)  
  
 #### b. 懒汉式
+懒：用到头上才会创建，有了就不再创建  
+核心实现：私有静态属性=null,方法中创建  
 #### c. 双重锁加持的懒汉
+优势：解决懒汉式在多线程下并发创建多个对象的问题； 
+```java
+if(a==null) { Sychronized（a）{ if(a==null)}}
+```
+
 #### d. 内部类实现
+关键：静态内部类中创建唯一的私有静态外部类的属性；  
+外部类的方法实现：返回内部类的静态属性  
 #### e. enum 枚举实现
 ##### I 分析
  enum可以看作是特殊的class类型，enum的declaration会被编译成包含static final属性的final类  
